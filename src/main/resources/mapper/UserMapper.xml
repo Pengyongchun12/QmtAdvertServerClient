@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qmt.qmtadvertserverclient.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qmt.qmtadvertserverclient.entity.UserBean">
+        <id column="u_id" property="uId" />
+        <result column="u_openid" property="uOpenid" />
+        <result column="u_access_token" property="uAccessToken" />
+        <result column="u_nickname" property="uNickname" />
+        <result column="u_sex" property="uSex" />
+        <result column="u_country" property="uCountry" />
+        <result column="u_province" property="uProvince" />
+        <result column="u_city" property="uCity" />
+        <result column="u_headimgurl" property="uHeadimgurl" />
+        <result column="u_unionid" property="uUnionid" />
+        <result column="u_tel" property="uTel" />
+        <result column="u_token" property="uToken" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        u_id, u_openid, u_access_token, u_nickname, u_sex, u_country, u_province, u_city, u_headimgurl, u_unionid, u_tel, u_token, create_time, update_time
+    </sql>
+
+</mapper>
