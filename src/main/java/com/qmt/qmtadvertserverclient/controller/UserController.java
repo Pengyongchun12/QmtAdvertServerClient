@@ -25,7 +25,7 @@ public class UserController {
     UserService userService;
 
 
-    //访问: http:localhost:8085/api/user/selectAll
+    //访问: http:localhost:8085/api/user/select
     @RequestMapping("selectAll")
     public JsonResult selectAll(){
         return ResultUtil.successSate(userService.list());
