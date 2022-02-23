@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 public class UserBean extends Model<UserBean> {
 
     /**
-     * 登录id
+     * 用户id
      */
     @TableId(value = "u_id", type = IdType.AUTO)
     private Integer uId;
@@ -124,4 +124,26 @@ public class UserBean extends Model<UserBean> {
         return this.uId;
     }
 
+    /**
+     * Mybatis 必须提供无参构造方法，用于Mybatis容器内部查询参数(反射机制)
+     */
+    public UserBean() {
+
+    }
+
+    /**
+     * 注册账户
+     */
+    public UserBean(String uOpenid, String uAccessToken, String uNickname, String uSex, String uCountry, String uProvince, String uCity, String uHeadimgurl, String uUnionid, String uTel) {
+        this.uOpenid = uOpenid;
+        this.uAccessToken = uAccessToken;
+        this.uNickname = uNickname;
+        this.uSex = uSex;
+        this.uCountry = uCountry;
+        this.uProvince = uProvince;
+        this.uCity = uCity;
+        this.uHeadimgurl = uHeadimgurl;
+        this.uUnionid = uUnionid;
+        this.uTel = uTel;
+    }
 }
