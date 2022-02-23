@@ -57,6 +57,7 @@ public class UserController {
         UserBean userBean = new UserBean(uOpenid,uAccessToken,uNickname,uSex,uCountry,uProvince,uCity,uHeadimgurl,uUnionid,uTel);
         //5.开始注册同时添加数据库
         boolean registerState = userService.save(userBean);
+        //6.判断注册结果
         return registerState ? ResultUtil.successSate(ResultCode.SUCCESS,"注册成功") : ResultUtil.successSate(ResultCode.SUCCESS_AND_FAIL,"注册失败");
     }
 }
