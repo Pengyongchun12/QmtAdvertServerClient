@@ -86,12 +86,11 @@ public class AdvertBean extends Model<AdvertBean> {
     }
 
 
-    public AdvertBean(Integer aUid, String aContent, String aAddress, Integer aDay, String aPic, LocalDateTime createTime) {
+    public AdvertBean(Integer aUid, String aContent, String aAddress, Integer aDay, String aPic) {
         this.aUid = aUid;
         this.aContent = aContent;
         this.aAddress = aAddress;
         this.aDay = aDay;
         this.aPic = aPic;
-        this.createTime = createTime;
     }
 }

@@ -1,8 +1,6 @@
 package com.qmt.qmtadvertserverclient.controller;
 
 
-
-
 import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 
 import com.qmt.qmtadvertserverclient.service.AdvertService;
@@ -18,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 
 
 /**
@@ -48,24 +45,15 @@ public class AdvertController {
 //    }
 //
 
-    @RequestMapping(value = "/publishAdvert", method = {RequestMethod.POST}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public JsonResult uploadOSS(@RequestParam(value = "file") MultipartFile[] files, AdvertBean advertBean) throws Exception {
-
-        //int aUid = StpUtil.getLoginIdAsInt();
+    @RequestMapping(value = "/publishAdvert/{userId}/{content}/{address}/{day}", method = {RequestMethod.POST}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public JsonResult uploadOSS(@PathVariable("userId") int userId, @PathVariable("content") String content,
+                                @PathVariable("address") String address, @PathVariable("day") int day,
+                                @RequestParam(value = "file") MultipartFile[] files) {
         String aPic = ossService.uploadToOss(files); // 获取商家发布广告的图片的相关url
-        System.out.println(aPic);
-        int aId = (int)((Math.random()*9+1)*1000);// 广告ID
-
-        ResultCode resultCode = ResultCode.SUCCESS;
-        System.out.println(advertBean);
-//
-        boolean isSave = advertService.save(new AdvertBean(1,aPic));
-        System.out.println(isSave);
-//        if(isSave){
-//            return  ResultUtil.successSate(resultCode,advertBean);
-//        }
-//        resultCode = ResultCode.ERROR;
-     return  ResultUtil.successSate(resultCode,advertBean);
+        System.out.println("图片Url======"+aPic);
+        //int aId = (int)((Math.random()*9+1)*1000);// 广告IDa
+        boolean isSave = advertService.save(new AdvertBean(userId, content,address,day,aPic));
+        return isSave ? ResultUtil.successSate(ResultCode.SUCCESS, "发布成功") : ResultUtil.successSate(ResultCode.SUCCESS_AND_FAIL, "发布失败");
 
     }
 }
