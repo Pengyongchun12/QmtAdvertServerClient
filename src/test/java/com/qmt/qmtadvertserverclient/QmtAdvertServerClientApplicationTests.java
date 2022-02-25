@@ -8,6 +8,7 @@ class QmtAdvertServerClientApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

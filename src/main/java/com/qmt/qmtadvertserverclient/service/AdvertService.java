@@ -2,6 +2,9 @@ package com.qmt.qmtadvertserverclient.service;
 
 import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-02-23
  */
 public interface AdvertService extends IService<AdvertBean> {
+
+
 
 }

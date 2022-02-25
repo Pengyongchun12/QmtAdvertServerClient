@@ -17,13 +17,13 @@ public class JsonResult<T> implements Serializable {
      * 无数据返回，指定状态码和提示信息
      *
      * @param resultCode
+
      */
     public JsonResult setJsonResult(ResultCode resultCode) {
         this.code = resultCode.getCode();
         this.msg = resultCode.getMessage();
         return this;
     }
-
 
     /**
      * 有数据返回，状态码为 200，人为指定提示信息

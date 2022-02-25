@@ -5,6 +5,9 @@ import com.qmt.qmtadvertserverclient.mapper.AdvertMapper;
 import com.qmt.qmtadvertserverclient.service.AdvertService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 /**
  * <p>
