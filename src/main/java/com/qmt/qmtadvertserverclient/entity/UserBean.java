@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -22,8 +23,7 @@ import java.time.LocalDateTime;
  * @author 黔民通
  * @since 2022-02-23
  */
-@Getter
-@Setter
+@Data
 @Accessors(chain = true)
 @TableName("t_user")
 public class UserBean extends Model<UserBean> {

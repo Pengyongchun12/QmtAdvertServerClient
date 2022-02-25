@@ -27,7 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @since 2022-02-23
  */
 @RestController
-@RequestMapping("/advert-bean")
+@RequestMapping("/api/advert/")
 public class AdvertController {
 
     @Autowired
@@ -45,10 +45,10 @@ public class AdvertController {
 //    }
 //
 
-    @RequestMapping(value = "/publishAdvert/{userId}/{content}/{address}/{day}", method = {RequestMethod.POST}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public JsonResult uploadOSS(@PathVariable("userId") int userId, @PathVariable("content") String content,
-                                @PathVariable("address") String address, @PathVariable("day") int day,
-                                @RequestParam(value = "file") MultipartFile[] files) {
+    //访问 http://localhost:8085/api/advert/uploadOSS/8/内容/地址/10 (Body选择file图片)
+    @RequestMapping(value = "uploadOSS/{userId}/{content}/{address}/{day}", method = {RequestMethod.POST}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public JsonResult uploadOSS(@RequestParam(value = "file") MultipartFile[] files, @PathVariable("userId") int userId,
+                                @PathVariable("content") String content, @PathVariable("address") String address, @PathVariable("day") int day) {
         String aPic = ossService.uploadToOss(files); // 获取商家发布广告的图片的相关url
         System.out.println("图片Url======"+aPic);
         //int aId = (int)((Math.random()*9+1)*1000);// 广告IDa
