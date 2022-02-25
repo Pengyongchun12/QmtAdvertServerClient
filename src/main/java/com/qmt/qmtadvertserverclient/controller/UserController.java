@@ -30,4 +30,9 @@ public class UserController {
     public JsonResult selectAll(){
         return ResultUtil.successSate(userService.list());
     }
+
+
+
+
+
 }
