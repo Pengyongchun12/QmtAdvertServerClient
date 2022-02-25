@@ -4,6 +4,8 @@ import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  * 广告墙表 Mapper 接口
@@ -14,5 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface AdvertMapper extends BaseMapper<AdvertBean> {
+
 
 }
