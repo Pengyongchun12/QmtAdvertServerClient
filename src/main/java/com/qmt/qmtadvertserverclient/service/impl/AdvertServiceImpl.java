@@ -4,10 +4,8 @@ import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 import com.qmt.qmtadvertserverclient.mapper.AdvertMapper;
 import com.qmt.qmtadvertserverclient.service.AdvertService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Map;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -20,4 +18,14 @@ import java.util.Map;
 @Service
 public class AdvertServiceImpl extends ServiceImpl<AdvertMapper, AdvertBean> implements AdvertService {
 
+
+//    @Override
+//    public List<AdvertBean> queryAdvertByPassword(Map<String,String> map) {
+//        SqlSession sqlSession = MyBatisUtil.getSqlSession();
+//
+//        AdvertMapper mapper = sqlSession.getMapper(AdvertMapper.class);
+//        List<AdvertBean> advertBeans = mapper.queryAdvertByPassword(map);
+//        sqlSession.close();
+//        return advertBeans;
+//    }
 }

@@ -1,6 +1,9 @@
 package com.qmt.qmtadvertserverclient.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 
 import com.qmt.qmtadvertserverclient.service.AdvertService;
@@ -16,6 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -50,10 +57,24 @@ public class AdvertController {
     public JsonResult uploadOSS(@RequestParam(value = "file") MultipartFile[] files, @PathVariable("userId") int userId,
                                 @PathVariable("content") String content, @PathVariable("address") String address, @PathVariable("day") int day) {
         String aPic = ossService.uploadToOss(files); // 获取商家发布广告的图片的相关url
-        System.out.println("图片Url======"+aPic);
+        System.out.println("图片Url======" + aPic);
         //int aId = (int)((Math.random()*9+1)*1000);// 广告IDa
-        boolean isSave = advertService.save(new AdvertBean(userId, content,address,day,aPic));
+        boolean isSave = advertService.save(new AdvertBean(userId, content, address, day, aPic));
         return isSave ? ResultUtil.successSate(ResultCode.SUCCESS, "发布成功") : ResultUtil.successSate(ResultCode.SUCCESS_AND_FAIL, "发布失败");
+
+    }
+
+
+    //根据地址或者关键词得到广告数据
+    @RequestMapping(value = "queryAdverts",method = RequestMethod.GET)
+    public JsonResult queryAdverts(@RequestParam("aAddress") String aAddress, @RequestParam("password") String password){
+
+        QueryWrapper<AdvertBean> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like(StringUtils.isNotBlank(aAddress), "a_address", aAddress);
+        queryWrapper.like(StringUtils.isNotBlank(password), "a_content", password);
+        List<Map<String, Object>> maps = advertService.listMaps(queryWrapper);
+
+        return ResultUtil.successSate(ResultCode.SUCCESS,maps);
 
     }
 }

@@ -39,7 +39,7 @@ public class UserController {
     /**
      * 注册账户
      * 访问: http:localhost:8085/api/user/register/2/2/2/2/2/2/2/2/2/2
-     */
+//     */
     @RequestMapping("register/{uOpenid}/{uAccessToken}/{uNickname}/{uSex}/{uCountry}/{uProvince}/{uCity}/{uHeadimgurl}/{uUnionid}/{uTel}")
     public JsonResult register(@PathVariable(value = "uOpenid") String uOpenid, @PathVariable(value = "uAccessToken") String uAccessToken,
                                @PathVariable(value = "uNickname") String uNickname, @PathVariable(value = "uSex") String uSex,

@@ -3,8 +3,11 @@ package com.qmt.qmtadvertserverclient.mapper;
 import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -17,5 +20,6 @@ import java.util.List;
 @Mapper
 public interface AdvertMapper extends BaseMapper<AdvertBean> {
 
+    //List<AdvertBean> queryAdvertByPassword(Map<String,String> map);
 
 }

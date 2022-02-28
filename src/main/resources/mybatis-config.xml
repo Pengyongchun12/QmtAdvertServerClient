@@ -29,9 +29,9 @@
 <!--        <typeAlias alias="BigDecimal" type="java.math.BigDecimal"/>-->
 <!--    </typeAliases>-->
 
-<!--    <mappers>-->
+    <mappers>
 <!--        <mapper resource="src/main/resources/mapper/UserMapper.xml"/>-->
-<!--        <mapper resource="src/main/resources/mapper/AdvertMapper.xml"/>-->
-<!--    </mappers>-->
+<!--        <mapper resource="mapper/AdvertMapper.xml"/>-->
+    </mappers>
 
 </configuration>

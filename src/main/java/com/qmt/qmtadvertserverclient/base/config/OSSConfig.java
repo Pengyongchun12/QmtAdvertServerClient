@@ -32,7 +32,7 @@ public class OSSConfig implements Serializable {
     /**
      * 阿里云 oss 私钥
      */
-    @Value("${oss.accessKeySecret}")
+    @Value(value = "${oss.accessKeySecret}")
     private String accessKeySecret;
 
     /**
@@ -43,33 +43,7 @@ public class OSSConfig implements Serializable {
 
 
 
-    public String getEndpoint() {
-        return endpoint;
-    }
 
-
-    public String getUrl() {
-        return url;
-    }
-
-
-    public String getAccessKeyId() {
-        return accessKeyId;
-    }
-
-    public void setAccessKeyId(String accessKeyId) {
-        this.accessKeyId = accessKeyId;
-    }
-
-    public String getAccessKeySecret() {
-        return accessKeySecret;
-    }
-
-
-
-    public String getBucketName() {
-        return bucketName;
-    }
 
 
 }

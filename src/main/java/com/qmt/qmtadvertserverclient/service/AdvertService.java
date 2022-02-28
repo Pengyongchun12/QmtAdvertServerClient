@@ -4,7 +4,11 @@ import com.qmt.qmtadvertserverclient.entity.AdvertBean;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 
+
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 
 /**
  * <p>
@@ -17,5 +21,5 @@ import java.util.Map;
 public interface AdvertService extends IService<AdvertBean> {
 
 
-
+    //List<AdvertBean> queryAdvertByPassword(Map<String,String> map);
 }

@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.http.MediaType;
 
 import java.nio.charset.StandardCharsets;
@@ -67,5 +68,6 @@ public class QmtAdvertServerClientApplication {
         httpMessageConverter.setSupportedMediaTypes(mediaTypeList);
         return new HttpMessageConverters(httpMessageConverter);
     }
+
 
 }
