@@ -22,7 +22,7 @@ public class FastAutoGeneratorTest {
      * 数据源配置
      */
     private static final DataSourceConfig.Builder DATA_SOURCE_CONFIG = new DataSourceConfig
-            .Builder("jdbc:mysql://localhost:3306/qmt?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root")
+            .Builder("jdbc:mysql://localhost:3306/vclient?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root")
             .dbQuery(new MySqlQuery()) //数据库查询
             .schema("mybatis-plus") //数据库schema(部分数据库适用)
             .typeConvert(new MySqlTypeConvert()) //数据库类型转换器

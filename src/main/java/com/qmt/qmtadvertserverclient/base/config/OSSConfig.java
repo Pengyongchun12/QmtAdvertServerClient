@@ -40,10 +40,4 @@ public class OSSConfig implements Serializable {
      */
     @Value("${oss.bucketName}")
     private String bucketName;
-
-
-
-
-
-
 }

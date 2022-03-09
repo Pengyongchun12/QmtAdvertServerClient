@@ -1,7 +1,8 @@
 package com.qmt.qmtadvertserverclient.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.qmt.qmtadvertserverclient.entity.AdvertBean;
@@ -20,7 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -73,8 +74,41 @@ public class AdvertController {
         queryWrapper.like(StringUtils.isNotBlank(aAddress), "a_address", aAddress);
         queryWrapper.like(StringUtils.isNotBlank(password), "a_content", password);
         List<Map<String, Object>> maps = advertService.listMaps(queryWrapper);
-
         return ResultUtil.successSate(ResultCode.SUCCESS,maps);
 
     }
+
+    //查询个人信息
+    @RequestMapping(value = "queryUserInfo",method = RequestMethod.GET)
+    public JsonResult queryUserInfo(){
+        String token = StpUtil.getTokenValueByLoginId(10001);//通过id获取令牌
+        if(token.equals("")){
+            return ResultUtil.failure(ResultCode.ERROR,"您还没有登录，请先登录，再查询相关信息");
+        }
+        QueryWrapper<AdvertBean> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("u_access_token", token);
+        AdvertBean advert = advertService.getOne(queryWrapper);
+        return  ResultUtil.successSate(ResultCode.SUCCESS,advert);
+    }
+
+    //查询订单
+
+
+    //查询我的发布信息
+    @RequestMapping(value = "queryAdvertsAboutMe",method = RequestMethod.GET)
+    public JsonResult queryAdvertsAboutMe(){
+        Integer uid = StpUtil.getLoginIdAsInt();
+        if(uid == null){
+            return ResultUtil.failure(ResultCode.ERROR,"您还没有登录，请先登录，再查询发布信息信息");
+        }
+        QueryWrapper<AdvertBean> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("a_uid", uid);
+        Map<String, Object> adverts = advertService.getMap(queryWrapper);//查询所有我发布的广告信息
+        return adverts.isEmpty() ? ResultUtil.failure(ResultCode.ERROR,"您还没有发布信息"): ResultUtil.successSate(ResultCode.SUCCESS,adverts);
+    }
+
+
+    //queryQualification 查看资质
+
+
 }
