@@ -67,9 +67,3 @@ sa-token:
   tokenSessionCheckLogin: true
   ## aliyun oss
   ## 配置说明参考: com.ljq.demo.springboot.common.config.OSSConfig.class
-oss:
-    endpoint: oss-cn-beijing.aliyuncs.com
-    url: https://oos-all.oss-cn-shenzhen.aliyuncs.com/
-    accessKeyId: LTAI5tNc4v1wHeDvnxrM2nJL #这里在个人中心里accesskeys查看
-    accessKeySecret: vEKhQApGQOPZ9ZxfzovRd66EQKWULL  #这里在个人中心里accesskeys查看
-    bucketName: pychun #这里写OSS里自己创建的OSS文件夹
